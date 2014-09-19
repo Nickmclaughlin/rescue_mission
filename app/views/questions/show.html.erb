@@ -8,18 +8,10 @@
   <%= @question.description %>
 </p>
 
-<h2>Comments</h2>
-<% @question.comments.each do |comment| %>
-  <p>
-    <strong>Username:</strong>
-    <%= comment.username %>
-  </p>
+<%= link_to 'Edit', edit_question_path(@question.id) %><br>
+<%= link_to "Delete", question_path(@question), method: :delete %>
 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.description %>
-  </p>
-<% end %>
+<%= flash[:notice] %>
 
 <h2>Add a comment:</h2>
 <%= form_for([@question, @question.comments.build]) do |f| %>
@@ -35,5 +27,14 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<ol>
+  <% @comments.each do |comment| %>
+    <li>Username - <%= comment.username %><br>
+    Answer  - <%= comment.description %></li>
+  <% end %>
+</ol>
+
+
 
 <%= link_to 'See All Questions', questions_path %>

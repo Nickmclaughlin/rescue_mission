@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :question
   validates :username, presence: true,
-                    length: { minimum: 4 }
-  validates :description, presence: true,
-                    length: { minimum: 50 }
+                      length: {minimum: 1}
+  validates :description, presence: true
+
 end
