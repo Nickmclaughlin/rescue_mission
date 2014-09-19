@@ -1,7 +1,7 @@
 <h2>Post New Questions</h2>
 <%= flash[:notice] %>
 
-<%= form_for :question, url: questions_path do |f| %>
+<%= form_for @question do |f| %>
 
   <p>
     <%= f.label :title %><br>
